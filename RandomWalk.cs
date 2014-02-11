@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ARandomWalk
+namespace aLotofRandomSteps
 {
     class Program
     {
@@ -17,7 +17,7 @@ namespace ARandomWalk
             Boolean done = true;
 
             Random random = new Random();//Create a new random instance
-            Console.WriteLine("Pls give me the number of steps I should take!");
+            Console.WriteLine("How many steps should Getch take?");
             totalSteps = Convert.ToInt32(Console.ReadLine());
 
             while (done)
@@ -26,8 +26,8 @@ namespace ARandomWalk
                 for (stepsTaken = 0; stepsTaken <= totalSteps; stepsTaken++)
                 {
 
-                    int step = random.Next(100);//generate numbers between 0 and 99
-                    switch (step % 4)
+                    int step = random.Next(100);//generate numbers between 0 - 99
+                    switch (step % 4)           //huh, this is actually really cool
                     {
                         case 0:
                             xPos++;
@@ -42,17 +42,18 @@ namespace ARandomWalk
                             yPos--;
                             break;
                     }
-                    i++;//loop counter
-                    if(i == 100)
+                    i++;//counts loops
+                    if (i == 100)
                         done = false;
                     sumX += xPos;
                     sumY += yPos;
-                } 
+                }
             }
-            sumX /= 100; // /= looks like a sad face
+            sumX /= 100;
             sumY /= 100;
-            Console.WriteLine("Phew! I wound up here a lot! ({0} {1})",sumX,sumY);
+            Console.WriteLine("I seem to end up at ({0} {1}) a lot...", sumX, sumY);
             Console.ReadKey();
         }
     }
 }
+//omg im done, yasss
